@@ -24,8 +24,6 @@ self.addEventListener('install', event => {
 
 
 });
-
-
 //Cuando el SW toma el control de la aplicación
 self.addEventListener('activate', event => {
 
@@ -34,4 +32,19 @@ self.addEventListener('activate', event => {
     console.log('SW2: Activo y listo para controlar app');
 
 
+});
+
+
+//FETCH: Manejo de peticiones HTTP
+self.addEventListener('fetch', event => {
+
+    //Aplicar estrategias de cache
+    console.log('SW:', event.request.url);
+
+    if( event.request.url.includes('https://reqrest.in/')){
+
+    const resp = new Response(`{ok: false, mensaje: 'jajaja'}`);
+
+    event.respondWith(resp);
+    }
 });
