@@ -39,12 +39,24 @@ self.addEventListener('activate', event => {
 self.addEventListener('fetch', event => {
 
     //Aplicar estrategias de cache
-    console.log('SW:', event.request.url);
+   // console.log('SW:', event.request.url);
 
-    if( event.request.url.includes('https://reqrest.in/')){
+    //if( event.request.url.includes('https://reqrest.in/')){
 
-    const resp = new Response(`{ok: false, mensaje: 'jajaja'}`);
+    //const resp = new Response(`{ok: false, mensaje: 'jajaja'}`);
 
-    event.respondWith(resp);
-    }
+    //event.respondWith(resp);
+    //}
+
+
+});
+
+//SYNC: Recuperamos la conexion a internet
+self.addEventListener('sync', event => {
+
+    console.log('Tenemos conexión!');
+    console.log(event);
+    console.log(event.tag);
+
+    
 });
