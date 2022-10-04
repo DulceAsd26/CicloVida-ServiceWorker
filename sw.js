@@ -7,7 +7,21 @@ self.addEventListener('install', event => {
     //creamos cache
     console.log('Instalando SW');
 
-    //self.skipWaiting();
+    const instalacion = new Promise((resolve, reject) => {
+         //self.skipWaiting();
+    setTimeout(() => {
+        console.log('SW: Instalaciones terminadas');
+        self.skipWaiting();
+        resolve();
+    }, 1000);
+
+    });
+
+   
+
+
+    event.waitUntil(instalacion);
+
 
 });
 
